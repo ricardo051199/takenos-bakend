@@ -3,26 +3,44 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity('influencer')
 export class Influencer {
-  @PrimaryGeneratedColumn()
+@PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: string;
 
-  @Column({ unique: true })
-  takeCode: string;
+  @Column()
+  photo: string;
 
-  @Column({ nullable: true })
-  instagramUsername: string;
+  @Column()
+  platform: string;
 
-  @Column({ nullable: true })
-  facebookUsername: string;
+  @Column('bigint')
+  followers: number;
 
-  @Column({ nullable: true })
-  tiktokUsername: string;
+  @Column('bigint')
+  views: number;
 
-  @Column({ nullable: true })
-  youtubeUsername: string;
+  @Column('decimal', { precision: 5, scale: 2 })
+  engagement: number;
+
+  @Column()
+  category: string;
+
+  @Column('decimal', { precision: 5, scale: 2 })
+  growthRate: number;
+
+  @Column({ default: '' })
+  instagram: string;
+
+  @Column({ default: '' })
+  facebook: string;
+
+  @Column({ default: '' })
+  tiktok: string;
+
+  @Column({ default: '' })
+  youtube: string;
 
   @OneToMany(() => Metric, (metric) => metric.influencer)
   metrics: Metric[];
