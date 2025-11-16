@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { InfluencerModule } from './resources/influencer/influencer.module';
 import { MetricaModule } from './resources/metrica/metrica.module';
 import { CampaniaModule } from './resources/campania/campania.module';
+import { UserModule } from './resources/user/user.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { CampaniaModule } from './resources/campania/campania.module';
     InfluencerModule,
     MetricaModule,
     CampaniaModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
